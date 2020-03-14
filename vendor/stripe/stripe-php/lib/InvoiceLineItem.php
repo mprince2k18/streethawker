@@ -3,7 +3,7 @@
 namespace Stripe;
 
 /**
- * Class InvoiceLineItem
+ * Class InvoiceLineItem.
  *
  * @property string $id
  * @property string $object
@@ -13,9 +13,9 @@ namespace Stripe;
  * @property bool $discountable
  * @property string $invoice_item
  * @property bool $livemode
- * @property StripeObject $metadata
- * @property mixed $period
- * @property Plan $plan
+ * @property \Stripe\StripeObject $metadata
+ * @property \Stripe\StripeObject $period
+ * @property \Stripe\Plan $plan
  * @property bool $proration
  * @property int $quantity
  * @property string $subscription
@@ -23,8 +23,6 @@ namespace Stripe;
  * @property array $tax_amounts
  * @property array $tax_rates
  * @property string $type
- *
- * @package Stripe
  */
 class InvoiceLineItem extends ApiResource
 {

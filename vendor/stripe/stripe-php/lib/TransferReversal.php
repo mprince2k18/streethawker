@@ -3,7 +3,7 @@
 namespace Stripe;
 
 /**
- * Class TransferReversal
+ * Class TransferReversal.
  *
  * @property string $id
  * @property string $object
@@ -12,11 +12,9 @@ namespace Stripe;
  * @property int $created
  * @property string $currency
  * @property string $destination_payment_refund
- * @property StripeObject $metadata
+ * @property \Stripe\StripeObject $metadata
  * @property string $source_refund
  * @property string $transfer
- *
- * @package Stripe
  */
 class TransferReversal extends ApiResource
 {
@@ -27,7 +25,7 @@ class TransferReversal extends ApiResource
     }
 
     /**
-     * @return string The API URL for this Stripe transfer reversal.
+     * @return string the API URL for this Stripe transfer reversal
      */
     public function instanceUrl()
     {
@@ -35,8 +33,8 @@ class TransferReversal extends ApiResource
         $transfer = $this['transfer'];
         if (!$id) {
             throw new Exception\UnexpectedValueException(
-                "Could not determine which URL to request: " .
-                "class instance has invalid ID: $id",
+                'Could not determine which URL to request: ' .
+                "class instance has invalid ID: {$id}",
                 null
             );
         }
@@ -44,17 +42,18 @@ class TransferReversal extends ApiResource
         $transfer = Util\Util::utf8($transfer);
 
         $base = Transfer::classUrl();
-        $transferExtn = urlencode($transfer);
-        $extn = urlencode($id);
-        return "$base/$transferExtn/reversals/$extn";
+        $transferExtn = \urlencode($transfer);
+        $extn = \urlencode($id);
+
+        return "{$base}/{$transferExtn}/reversals/{$extn}";
     }
 
     /**
-     * @param array|string|null $opts
+     * @param null|array|string $opts
      *
      * @throws \Stripe\Exception\ApiErrorException if the request fails
      *
-     * @return TransferReversal The saved reversal.
+     * @return TransferReversal the saved reversal
      */
     public function save($opts = null)
     {

@@ -1,5 +1,51 @@
 # Changelog
 
+## 7.27.2 - 2020-03-13
+* [#894](https://github.com/stripe/stripe-php/pull/894) Multiple PHPDocs changes
+
+## 7.27.1 - 2020-03-03
+* [#890](https://github.com/stripe/stripe-php/pull/890) Update PHPdoc
+
+## 7.27.0 - 2020-02-28
+* [#889](https://github.com/stripe/stripe-php/pull/889) Add new constants for `type` on `TaxId`
+
+## 7.26.0 - 2020-02-26
+* [#886](https://github.com/stripe/stripe-php/pull/886) Add support for listing Checkout `Session`
+* [#883](https://github.com/stripe/stripe-php/pull/883) Add PHPDoc class descriptions
+
+## 7.25.0 - 2020-02-14
+* [#879](https://github.com/stripe/stripe-php/pull/879) Make `\Stripe\Collection` implement `\Countable`
+* [#875](https://github.com/stripe/stripe-php/pull/875) Last set of PHP-CS-Fixer updates
+* [#874](https://github.com/stripe/stripe-php/pull/874) Enable php_unit_internal_class rule
+* [#873](https://github.com/stripe/stripe-php/pull/873) Add support for phpDocumentor in Makefile
+* [#872](https://github.com/stripe/stripe-php/pull/872) Another batch of PHP-CS-Fixer rule updates
+* [#871](https://github.com/stripe/stripe-php/pull/871) Fix a few PHPDoc comments
+* [#870](https://github.com/stripe/stripe-php/pull/870) More PHP-CS-Fixer tweaks
+
+## 7.24.0 - 2020-02-10
+* [#862](https://github.com/stripe/stripe-php/pull/862) Better PHPDoc
+* [#865](https://github.com/stripe/stripe-php/pull/865) Get closer to `@PhpCsFixer` standard ruleset
+
+## 7.23.0 - 2020-02-05
+* [#860](https://github.com/stripe/stripe-php/pull/860) Add PHPDoc types for expandable fields
+* [#858](https://github.com/stripe/stripe-php/pull/858) Use `native_function_invocation` PHPStan rule
+* [#857](https://github.com/stripe/stripe-php/pull/857) Update PHPDoc on nested resources
+* [#855](https://github.com/stripe/stripe-php/pull/855) PHPDoc: `StripeObject` -> `ErrorObject` where appropriate
+* [#837](https://github.com/stripe/stripe-php/pull/837) Autogen diff
+* [#854](https://github.com/stripe/stripe-php/pull/854) Upgrade PHPStan and fix settings
+* [#850](https://github.com/stripe/stripe-php/pull/850) Yet more PHPDoc updates
+
+## 7.22.0 - 2020-01-31
+* [#849](https://github.com/stripe/stripe-php/pull/849) Add new constants for `type` on `TaxId`
+* [#843](https://github.com/stripe/stripe-php/pull/843) Even more PHPDoc fixes
+* [#841](https://github.com/stripe/stripe-php/pull/841) More PHPDoc fixes
+
+## 7.21.1 - 2020-01-29
+* [#840](https://github.com/stripe/stripe-php/pull/840) Update phpdocs across multiple resources.
+
+## 7.21.0 - 2020-01-28
+* [#839](https://github.com/stripe/stripe-php/pull/839) Add support for `TYPE_ES_CIF` on `TaxId`
+
 ## 7.20.0 - 2020-01-23
 * [#836](https://github.com/stripe/stripe-php/pull/836) Add new type values for `TaxId`
 
