@@ -392,46 +392,21 @@
                             <div class="mobile-menu d-block d-lg-none">
                                 <nav>
                                     <ul>
-                                        <li><a href="index.html">home</a>
+                                      @foreach (App\category::latest()->take(6)->get() as $item)
+                                        <li><a href="{{ url('/shop/category') }}/{{ $item->id }}">{{ $item->category_name }}</a>
                                             <!-- Home Version Dropdown Start -->
                                             <ul>
-                                                <li><a href="index.html">Home Version 1</a></li>
-                                                <li><a href="index-2.html">Home Version 2</a></li>
-                                                <li><a href="index-3.html">Home Version 3</a></li>
-                                                <li><a href="index-4.html">Home Version 4</a></li>
+                                              @foreach (App\sub_category::all() as $subCategory)
+                                                @if ($item->id == $subCategory->categoryId)
+                                                <li><a href="{{ url('/shop/sub_category') }}/{{ $subCategory->id }}">{{ $subCategory->sub_category_name }}</a></li>
+                                              @endif
+                                              @endforeach
                                             </ul>
                                             <!-- Home Version Dropdown End -->
                                         </li>
-                                        <li><a href="shop.html">shop</a>
-                                            <!-- Mobile Menu Dropdown Start -->
-                                            <ul>
-                                                <li><a href="product.html">product details</a></li>
-                                                <li><a href="compare.html">compare</a></li>
-                                                <li><a href="cart.html">cart</a></li>
-                                                <li><a href="checkout.html">checkout</a></li>
-                                                <li><a href="wishlist.html">wishlist</a></li>
-                                            </ul>
-                                            <!-- Mobile Menu Dropdown End -->
-                                        </li>
-                                        <li><a href="blog.html">Blog</a>
-                                            <!-- Mobile Menu Dropdown Start -->
-                                            <ul>
-                                                <li><a href="single-blog.html">blog details</a></li>
-                                            </ul>
-                                            <!-- Mobile Menu Dropdown End -->
-                                        </li>
-                                        <li><a href="#">pages</a>
-                                            <!-- Mobile Menu Dropdown Start -->
-                                            <ul>
-                                                <li><a href="register.html">register</a></li>
-                                                <li><a href="login.html">sign in</a></li>
-                                                <li><a href="forgot-password.html">forgot password</a></li>
-                                                <li><a href="404.html">404</a></li>
-                                            </ul>
-                                            <!-- Mobile Menu Dropdown End -->
-                                        </li>
-                                        <li><a href="about.html">about us</a></li>
-                                        <li><a href="contact.html">contact us</a></li>
+                                      @endforeach
+                                        <li><a href="{{ route('aboutus') }}">about us</a></li>
+                                        <li><a href="{{ route('contact') }}">contact us</a></li>
                                     </ul>
                                 </nav>
                             </div>
