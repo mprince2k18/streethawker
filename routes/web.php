@@ -256,6 +256,8 @@ Route::get('auth/google/callback', 'SocialiteController@handleGoogleCallback');
 
 
 Route::get('showInv', 'CartController@showInv');
+Route::get('/aboutus', 'CustomerController@aboutus')->name('aboutus');
+Route::get('/contact', 'CustomerController@contact')->name('contact');
 
 
 // Coupon Route...................

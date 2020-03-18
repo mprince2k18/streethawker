@@ -385,8 +385,8 @@
 
 
 
-                                    <li><a href="about.html">About us</a></li>
-                                    <li><a href="contact.html">contact us</a></li>
+                                    <li><a href="{{ route('aboutus') }}">About us</a></li>
+                                    <li><a href="{{ route('contact') }}">contact us</a></li>
                                 </ul>
                             </nav>
                             <div class="mobile-menu d-block d-lg-none">

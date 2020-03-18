@@ -10,4 +10,14 @@ class CustomerController extends Controller
     {
         return view('customer.deshboard/profile');
     }
+
+    function aboutus()
+    {
+        return view('about');
+    }
+
+    function contact()
+    {
+        return view('contact');
+    }
 }
