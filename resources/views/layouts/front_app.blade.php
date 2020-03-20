@@ -786,7 +786,7 @@
                 <div class="container">
 
                      <div class="copyright-text text-center">
-                        <p>Copyright © 2018 <a target="_blank" href="#">Truemart</a> All Rights Reserved.</p>
+                        <p>Copyright © {{ date('Y') }} <a target="_blank" href="https://streethawker.com.bd">Street Hawker</a> All Rights Reserved.</p>
                      </div>
                 </div>
                 <!-- Container End -->
@@ -924,6 +924,8 @@
     <script src="{{asset('frontEnd/js/jquery-ui.min.js')}}"></script>
     <!-- Owl carousel -->
     <script src="{{asset('frontEnd/js/owl.carousel.min.js')}}"></script>
+
+    <script type="text/javascript" src="http://techmytip.com/demos/smoothproducts/js/smoothproducts.min.js"></script>
     <!-- Bootstrap popper js -->
     <script src="{{asset('frontEnd/js/popper.min.js')}}"></script>
     <!-- Bootstrap js -->
