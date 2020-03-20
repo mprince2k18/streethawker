@@ -101,19 +101,19 @@ function magnify(imgID, zoom) {
                            <!-- Thumbnail Large Image start -->
                            <div class="tab-content">
                                <div id="thumb1" class="tab-pane fade show active img-magnifier-container">
-                                   <a data-fancybox="images" href="{{ asset('uploads/product') }}/{{ $product->photo }}"><img src="{{ asset('uploads/product') }}/{{ $product->photo }}" id="myImage" alt="product-view"></a>
+                                   <a data-fancybox="images" href="{{ asset('uploads/product') }}/{{ $product->photo }}"><img src="{{ asset('uploads/product') }}/{{ $product->photo }}" id="myImage1" alt="product-view"></a>
                                </div>
                                <div id="thumb2" class="tab-pane fade">
-                                   <a data-fancybox="images" href="{{ asset('uploads/product') }}/{{ $product->photo }}"><img src="{{ asset('uploads/product') }}/{{ $product->photo }}" id="myImage" alt="product-view"></a>
+                                   <a data-fancybox="images" href="{{ asset('uploads/product') }}/{{ $product->photo }}"><img src="{{ asset('uploads/product') }}/{{ $product->photo }}" id="myImage2" alt="product-view"></a>
                                </div>
                                <div id="thumb3" class="tab-pane fade">
-                                   <a data-fancybox="images" href="{{ asset('uploads/product') }}/{{ $product->photo }}"><img src="{{ asset('uploads/product') }}/{{ $product->photo }}" id="myImage" alt="product-view"></a>
+                                   <a data-fancybox="images" href="{{ asset('uploads/product') }}/{{ $product->photo }}"><img src="{{ asset('uploads/product') }}/{{ $product->photo }}" id="myImage3" alt="product-view"></a>
                                </div>
                                <div id="thumb4" class="tab-pane fade">
-                                   <a data-fancybox="images" href="{{ asset('uploads/product') }}/{{ $product->photo }}"><img src="{{ asset('uploads/product') }}/{{ $product->photo }}" id="myImage" alt="product-view"></a>
+                                   <a data-fancybox="images" href="{{ asset('uploads/product') }}/{{ $product->photo }}"><img src="{{ asset('uploads/product') }}/{{ $product->photo }}" id="myImage4" alt="product-view"></a>
                                </div>
                                <div id="thumb5" class="tab-pane fade">
-                                   <a data-fancybox="images" href="{{ asset('uploads/product') }}/{{ $product->photo }}"><img src="{{ asset('uploads/product') }}/{{ $product->photo }}" id="myImage" alt="product-view"></a>
+                                   <a data-fancybox="images" href="{{ asset('uploads/product') }}/{{ $product->photo }}"><img src="{{ asset('uploads/product') }}/{{ $product->photo }}" id="myImage5" alt="product-view"></a>
                                </div>
                            </div>
                            <!-- Thumbnail Large Image End -->
@@ -606,6 +606,10 @@ function magnify(imgID, zoom) {
   <script>
   /* Initiate Magnify Function
   with the id of the image, and the strength of the magnifier glass:*/
-  magnify("myImage", 3);
+  magnify("myImage1", 3);
+  magnify("myImage2", 3);
+  magnify("myImage3", 3);
+  magnify("myImage4", 3);
+  magnify("myImage5", 3);
   </script>
 @endsection
