@@ -133,12 +133,12 @@
                                             <tbody>
                                                 <tr class="cart-subtotal">
                                                     <th>Subtotal</th>
-                                                    <td><span class="amount">${{$totalPrice}}</span></td>
+                                                    <td><span class="amount">৳{{$totalPrice}}</span></td>
                                                 </tr>
                                                 <tr class="order-total">
                                                     <th>Total</th>
                                                     <td>
-                                                        <strong><span class="amount">${{$totalPrice}}</span></strong>
+                                                        <strong><span class="amount">৳{{$totalPrice}}</span></strong>
                                                     </td>
                                                 </tr>
                                             </tbody>
