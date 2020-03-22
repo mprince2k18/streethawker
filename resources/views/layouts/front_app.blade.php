@@ -242,10 +242,10 @@
                                                 <!-- Cart Footer Inner Start -->
                                                 <div class="cart-footer">
                                                    <ul class="price-content">
-                                                       <li>Subtotal <span>${{$totalPrice}}</span></li>
-                                                       <li>Shipping <span>${{0.00}}</span></li>
-                                                       <li>Taxes <span>$0.00</span></li>
-                                                       <li>Total <span>${{$totalPrice+0+0}}</span></li>
+                                                       <li>Subtotal <span>৳{{$totalPrice}}</span></li>
+                                                       <li>Shipping <span>৳{{0.00}}</span></li>
+                                                       <li>Taxes <span>৳0.00</span></li>
+                                                       <li>Total <span>৳{{$totalPrice+0+0}}</span></li>
                                                    </ul>
                                                     <div class="cart-actions text-center">
                                                         <a class="cart-checkout" href="{{url('cart')}}">Checkout</a>
