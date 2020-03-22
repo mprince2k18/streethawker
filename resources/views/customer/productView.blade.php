@@ -150,7 +150,9 @@ function magnify(imgID, zoom) {
                                <div class="pro-price mtb-30">
                                    <p class="d-flex align-items-center">
                                      {{-- <span class="prev-price">16.51</span> --}}
-                                     <span class="price">৳{{ $product->product_price }}</span><span class="saving-price">save 8%</span></p>
+                                     <span class="price">৳{{ $product->product_price }}</span>
+                                     {{-- <span class="saving-price">save 8%</span> --}}
+                                   </p>
                                </div>
                                <p class="mb-20 pro-desc-details">{{ $product->description }}</p>
                                <div class="product-size mb-20 clearfix">
