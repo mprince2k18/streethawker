@@ -43,21 +43,21 @@
     <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
 </head>
     @php
-            ৳allProduct = App\product::all();
-            ৳sub_category = App\sub_category::all();
-            // ৳category = App\category::all();
-            // ৳category = App\category::orderBy('id', 'desc')->take(5)->get();
-            // ৳category = App\category::latest()->take(10)->get();
-            ৳category = App\category::take(10)->get();
+            $allProduct = App\product::all();
+            $sub_category = App\sub_category::all();
+            // $category = App\category::all();
+            // $category = App\category::orderBy('id', 'desc')->take(5)->get();
+            // $category = App\category::latest()->take(10)->get();
+            $category = App\category::take(10)->get();
 
-            ৳all_my_carts = App\Cart::where('customer_ip',৳_SERVER['REMOTE_ADDR'])->get();
-            ৳banner_popup  = App\Banner_popup::where('activation',1)->first('banner_popup')->banner_popup;
-            if (!৳banner_popup) {
-                ৳banner_popup = "default.jpg";
+            $all_my_carts = App\Cart::where('customer_ip',$_SERVER['REMOTE_ADDR'])->get();
+            $banner_popup  = App\Banner_popup::where('activation',1)->first('banner_popup')->banner_popup;
+            if (!$banner_popup) {
+                $banner_popup = "default.jpg";
             }
-            ৳logo = App\Logo::where('activation',1)->first('logo')->logo;
-            if (!৳logo) {
-                ৳logo = "default.png";
+            $logo = App\Logo::where('activation',1)->first('logo')->logo;
+            if (!$logo) {
+                $logo = "default.png";
             }
     @endphp
 <body>
@@ -72,7 +72,7 @@
             <span class="popup_off_banner">×</span>
             <div class="banner_popup_area">
                     {{-- <img width="1920" height="150" src="{{asset('frontEnd/img/banner_popup/')}}/{{(App\Banner_popup::where('activation',1)->first('banner_popup'))->banner_popup}}" alt=""> --}}
-                    <img width="1920" height="150" src="{{asset('frontEnd/img/banner_popup/')}}/{{৳banner_popup}}" alt="No Image">
+                    <img width="1920" height="150" src="{{asset('frontEnd/img/banner_popup/')}}/{{$banner_popup}}" alt="No Image">
             </div>
         </div>
         <!-- Banner Popup End -->
@@ -105,7 +105,7 @@
                     <!-- Header Top Start -->
                     <div class="header-top">
                         <ul>
-                            {{-- <li><a href="#">Free Shipping on order over ৳99</a></li> --}}
+                            {{-- <li><a href="#">Free Shipping on order over $99</a></li> --}}
                             <li><a href="{{ route('hotDealCart') }}">Shopping Cart</a></li>
                             {{-- <li><a href="{{url('checkOut')}}">Checkout</a></li> --}}
                         </ul>
@@ -118,7 +118,7 @@
                                 </ul>
                                 <!-- Dropdown End -->
                             </li> --}}
-                            {{-- <li><span>Currency</span><a href="#"> USD ৳ <i class="lnr lnr-chevron-down"></i></a>
+                            {{-- <li><span>Currency</span><a href="#"> USD $ <i class="lnr lnr-chevron-down"></i></a>
                                 <!-- Dropdown Start -->
                                 <ul class="ht-dropdown">
                                     <li><a href="#">&#36; USD</a></li>
@@ -168,7 +168,7 @@
                     <div class="row align-items-center no-gutters">
                         <div class="col-lg-3 col-md-12">
                             <div class="logo mb-all-30">
-                                <a href="{{url('/')}}"><img width="214px" height="58px" src="{{asset('frontEnd/img/logo/')}}/{{৳logo}}" alt="logo-image"></a>
+                                <a href="{{url('/')}}"><img width="214px" height="58px" src="{{asset('frontEnd/img/logo/')}}/{{$logo}}" alt="logo-image"></a>
                             </div>
                         </div>
                         <!-- Categorie Search Box Start Here -->
@@ -179,8 +179,8 @@
                                     <div class="form-group">
                                         <select class="bootstrap-select" name="poscats">
                                             <option value="0">All categories</option>
-                                            @foreach (৳sub_category as ৳item)
-                                                <option value="{{৳item->id}}">{{৳item->sub_category_name}}</option>
+                                            @foreach ($sub_category as $item)
+                                                <option value="{{$item->id}}">{{$item->sub_category_name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -194,7 +194,7 @@
                         <div class="col-lg-4 col-md-12">
                             <div class="cart-box mt-all-30">
                                 <ul class="d-flex justify-content-lg-end justify-content-center align-items-center">
-                                    <li><a href="{{url('cart')}}"><i class="lnr lnr-cart"></i><span class="my-cart"><span class="total-pro">{{ App\Cart::where('customer_ip',৳_SERVER['REMOTE_ADDR'])->count() }}</span><span>cart</span></span></a>
+                                    <li><a href="{{url('cart')}}"><i class="lnr lnr-cart"></i><span class="my-cart"><span class="total-pro">{{ App\Cart::where('customer_ip',$_SERVER['REMOTE_ADDR'])->count() }}</span><span>cart</span></span></a>
                                         <ul class="ht-dropdown cart-box-width">
                                             <li>
 
@@ -205,27 +205,27 @@
 
 
                                                 @php
-                                                    ৳totalPrice =0;
+                                                    $totalPrice =0;
                                                 @endphp
-                                            @forelse (৳all_my_carts as ৳item)
+                                            @forelse ($all_my_carts as $item)
 
                                                 <!-- Cart Box Start -->
                                                 <div class="single-cart-box">
                                                     <div class="cart-img">
-                                                        <a href="{{url('product/view')}}/{{App\product::findOrFail(৳item->product_id)->id}}"><img width="70px" height="70px" src="{{asset('uploads/product')}}/{{App\product::findOrFail(৳item->product_id)->photo}}" alt="cart-image"></a>
-                                                        <span name="cartQuantity[]" class="pro-quantity cartQuantity">{{৳item->product_quantity}}X</span>
+                                                        <a href="{{url('product/view')}}/{{App\product::findOrFail($item->product_id)->id}}"><img width="70px" height="70px" src="{{asset('uploads/product')}}/{{App\product::findOrFail($item->product_id)->photo}}" alt="cart-image"></a>
+                                                        <span name="cartQuantity[]" class="pro-quantity cartQuantity">{{$item->product_quantity}}X</span>
                                                     </div>
                                                         @php
-                                                            ৳totalPrice += (App\product::findOrFail(৳item->product_id)->product_price)*(৳item->product_quantity);
+                                                            $totalPrice += (App\product::findOrFail($item->product_id)->product_price)*($item->product_quantity);
                                                         @endphp
                                                     <div class="cart-content">
-                                                        <h6><a href="product.html">{{App\product::findOrFail(৳item->product_id)->product_name}}</a></h6>
-                                                        <span class="cart-price">{{App\product::findOrFail(৳item->product_id)->product_price}}</span>
-                                                        <span>Size: S , quantity : {{App\Cart::findOrFail(৳item->id)->product_quantity}}</span>
+                                                        <h6><a href="product.html">{{App\product::findOrFail($item->product_id)->product_name}}</a></h6>
+                                                        <span class="cart-price">{{App\product::findOrFail($item->product_id)->product_price}}</span>
+                                                        <span>Size: S , quantity : {{App\Cart::findOrFail($item->id)->product_quantity}}</span>
                                                         <span>Color: Yellow</span>
                                                     </div>
-                                                    {{-- <a class="del-icone" href="{{url('deleteCart')}}/{{৳item->id}}"><i class="ion-close"></i></a> --}}
-                                                    <a class="del-icone delPro" href="" data-del="{{url('deleteCart')}}/{{৳item->id}}"><i class="ion-close"></i></a>
+                                                    {{-- <a class="del-icone" href="{{url('deleteCart')}}/{{$item->id}}"><i class="ion-close"></i></a> --}}
+                                                    <a class="del-icone delPro" href="" data-del="{{url('deleteCart')}}/{{$item->id}}"><i class="ion-close"></i></a>
                                                 </div>
                                                 <!-- Cart Box End -->
                                             @empty
@@ -242,10 +242,10 @@
                                                 <!-- Cart Footer Inner Start -->
                                                 <div class="cart-footer">
                                                    <ul class="price-content">
-                                                       <li>Subtotal <span>৳{{৳totalPrice}}</span></li>
-                                                       <li>Shipping <span>৳{{0.00}}</span></li>
-                                                       <li>Taxes <span>৳0.00</span></li>
-                                                       <li>Total <span>৳{{৳totalPrice+0+0}}</span></li>
+                                                       <li>Subtotal <span>${{$totalPrice}}</span></li>
+                                                       <li>Shipping <span>${{0.00}}</span></li>
+                                                       <li>Taxes <span>$0.00</span></li>
+                                                       <li>Total <span>${{$totalPrice+0+0}}</span></li>
                                                    </ul>
                                                     <div class="cart-actions text-center">
                                                         <a class="cart-checkout" href="{{url('cart')}}">Checkout</a>
@@ -289,13 +289,13 @@
 
 
 
-                                                                          @foreach (৳category as ৳item)
-                                                                          @if (৳item->activation == 1)
+                                                                          @foreach ($category as $item)
+                                                                          @if ($item->activation == 1)
 
 
-                                                                              <li><a href="{{url('shop/category')}}/{{৳item->id}}"><span>
-                                                                                  <img src="{{asset('frontEnd/img/vertical-menu')}}/{{৳item->category_photo}} " alt="menu-icon" width="20px" height="20px">
-                                                                                  </span> {{৳item->category_name}} <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                                                              <li><a href="{{url('shop/category')}}/{{$item->id}}"><span>
+                                                                                  <img src="{{asset('frontEnd/img/vertical-menu')}}/{{$item->category_photo}} " alt="menu-icon" width="20px" height="20px">
+                                                                                  </span> {{$item->category_name}} <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                                                                                   <ul class="ht-dropdown megamenu first-megamenu">
 
 
@@ -303,14 +303,14 @@
 
 
                                                                                       <li class="single-megamenu">
-                                                                                      @foreach (৳sub_category as ৳sub)
-                                                                                      @if (৳item->id == ৳sub->categoryId)
-                                                                                      @if (৳loop->iteration % 2 != 0)
+                                                                                      @foreach ($sub_category as $sub)
+                                                                                      @if ($item->id == $sub->categoryId)
+                                                                                      @if ($loop->iteration % 2 != 0)
                                                                                       <ul id="bijor">
-                                                                                          <li class="menu-tile">{{৳sub->sub_category_name}}</li>
-                                                                                          @foreach (৳allProduct as ৳singleProduct)
-                                                                                              @if (৳singleProduct->sub_category === ৳sub->id)
-                                                                                              <li><a href="{{url("product/view")}}/{{৳singleProduct->id}}">{{৳singleProduct->product_name}}</a></li>
+                                                                                          <li class="menu-tile">{{$sub->sub_category_name}}</li>
+                                                                                          @foreach ($allProduct as $singleProduct)
+                                                                                              @if ($singleProduct->sub_category === $sub->id)
+                                                                                              <li><a href="{{url("product/view")}}/{{$singleProduct->id}}">{{$singleProduct->product_name}}</a></li>
                                                                                               @endif
                                                                                           @endforeach
                                                                                       </ul>
@@ -319,14 +319,14 @@
                                                                                       @endforeach
                                                                                       </li>
                                                                                       <li class="single-megamenu">
-                                                                                      @foreach (৳sub_category as ৳sub)
-                                                                                      @if (৳item->id == ৳sub->categoryId)
-                                                                                      @if (৳loop->iteration % 2 == 0)
+                                                                                      @foreach ($sub_category as $sub)
+                                                                                      @if ($item->id == $sub->categoryId)
+                                                                                      @if ($loop->iteration % 2 == 0)
                                                                                       <ul id="jor">
-                                                                                          <li class="menu-tile">{{৳sub->sub_category_name}}</li>
-                                                                                          @foreach (৳allProduct as ৳singleProduct)
-                                                                                              @if (৳singleProduct->sub_category === ৳sub->id)
-                                                                                              <li><a href="{{url("product/view")}}/{{৳singleProduct->id}}">{{৳singleProduct->product_name}}</a></li>
+                                                                                          <li class="menu-tile">{{$sub->sub_category_name}}</li>
+                                                                                          @foreach ($allProduct as $singleProduct)
+                                                                                              @if ($singleProduct->sub_category === $sub->id)
+                                                                                              <li><a href="{{url("product/view")}}/{{$singleProduct->id}}">{{$singleProduct->product_name}}</a></li>
                                                                                               @endif
                                                                                           @endforeach
                                                                                       </ul>
@@ -338,12 +338,12 @@
 
 
                                                                                       <li class="megamenu-img">
-                                                                                      @foreach (৳allProduct as ৳allp)
-                                                                                      @foreach (৳sub_category as ৳sub)
-                                                                                      @if (৳item->id == ৳sub->categoryId)
-                                                                                          @if (৳allp->sub_category == ৳sub->id)
+                                                                                      @foreach ($allProduct as $allp)
+                                                                                      @foreach ($sub_category as $sub)
+                                                                                      @if ($item->id == $sub->categoryId)
+                                                                                          @if ($allp->sub_category == $sub->id)
 
-                                                                                          <a href="shop.html"><img width="224" height="90" src="{{asset('uploads/brand')}}/{{App\Brand::find(৳allp->brand)->photo}}" alt="menu-image"></a>
+                                                                                          <a href="shop.html"><img width="224" height="90" src="{{asset('uploads/brand')}}/{{App\Brand::find($allp->brand)->photo}}" alt="menu-image"></a>
                                                                                           @endif
                                                                                       @endif
                                                                                       @endforeach
@@ -369,13 +369,13 @@
                                 <ul class="header-bottom-list d-flex">
 
 
-                                    @foreach (App\category::latest()->take(6)->get() as ৳item)
-                                    <li ><a href="{{ url('/shop/category') }}/{{ ৳item->id }}">{{ ৳item->category_name }}<i class="fa fa-angle-down"></i></a>
+                                    @foreach (App\category::latest()->take(6)->get() as $item)
+                                    <li ><a href="{{ url('/shop/category') }}/{{ $item->id }}">{{ $item->category_name }}<i class="fa fa-angle-down"></i></a>
                                         <!-- Home Version Dropdown Start -->
                                         <ul class="ht-dropdown">
-                                          @foreach (App\sub_category::all() as ৳subCategory)
-                                            @if (৳item->id == ৳subCategory->categoryId)
-                                            <li><a href="{{ url('/shop/sub_category') }}/{{ ৳subCategory->id }}">{{ ৳subCategory->sub_category_name }}</a></li>
+                                          @foreach (App\sub_category::all() as $subCategory)
+                                            @if ($item->id == $subCategory->categoryId)
+                                            <li><a href="{{ url('/shop/sub_category') }}/{{ $subCategory->id }}">{{ $subCategory->sub_category_name }}</a></li>
                                           @endif
                                           @endforeach
                                         </ul>
@@ -392,13 +392,13 @@
                             <div class="mobile-menu d-block d-lg-none">
                                 <nav>
                                     <ul>
-                                      @foreach (App\category::latest()->take(6)->get() as ৳item)
-                                        <li><a href="{{ url('/shop/category') }}/{{ ৳item->id }}">{{ ৳item->category_name }}</a>
+                                      @foreach (App\category::latest()->take(6)->get() as $item)
+                                        <li><a href="{{ url('/shop/category') }}/{{ $item->id }}">{{ $item->category_name }}</a>
                                             <!-- Home Version Dropdown Start -->
                                             <ul>
-                                              @foreach (App\sub_category::all() as ৳subCategory)
-                                                @if (৳item->id == ৳subCategory->categoryId)
-                                                <li><a href="{{ url('/shop/sub_category') }}/{{ ৳subCategory->id }}">{{ ৳subCategory->sub_category_name }}</a></li>
+                                              @foreach (App\sub_category::all() as $subCategory)
+                                                @if ($item->id == $subCategory->categoryId)
+                                                <li><a href="{{ url('/shop/sub_category') }}/{{ $subCategory->id }}">{{ $subCategory->sub_category_name }}</a></li>
                                               @endif
                                               @endforeach
                                             </ul>
@@ -424,13 +424,13 @@
                     <nav>
                         <div id="cate-mobile-toggle" class="category-menu sidebar-menu sidbar-style mobile-categorei-menu-list menu-hidden ">
                             <ul>
-                                @foreach(৳category as ৳item)
-                                  @if (৳item->activation == 1)
-                                <li class="has-sub"><a href="#">{{ ৳item->category_name }}</a>
+                                @foreach($category as $item)
+                                  @if ($item->activation == 1)
+                                <li class="has-sub"><a href="#">{{ $item->category_name }}</a>
                                     <ul class="category-sub">
-                                      @foreach(৳sub_category as ৳sub)
-                                        @if (৳item->id == ৳sub->categoryId && ৳sub->activation == 1)
-                                        <li><a href="{{ url('shop/sub_category') }}/{{ ৳sub->id }}">{{৳sub->sub_category_name}}</a></li>
+                                      @foreach($sub_category as $sub)
+                                        @if ($item->id == $sub->categoryId && $sub->activation == 1)
+                                        <li><a href="{{ url('shop/sub_category') }}/{{ $sub->id }}">{{$sub->sub_category_name}}</a></li>
                                       @endif
                                       @endforeach
                                     </ul>
@@ -470,13 +470,13 @@
 
 
 
-                                @foreach (৳category as ৳item)
+                                @foreach ($category as $item)
 
-                                  @if (৳loop->iteration <= 10 && ৳item->activation == 1)
+                                  @if ($loop->iteration <= 10 && $item->activation == 1)
 
-                                    <li><a href="{{url('shop/category')}}/{{৳item->id}}"><span>
-                                        <img src="{{asset('frontEnd/img/vertical-menu')}}/{{৳item->category_photo}} " alt="menu-icon" width="20px" height="20px">
-                                        </span> {{৳item->category_name}} <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                    <li><a href="{{url('shop/category')}}/{{$item->id}}"><span>
+                                        <img src="{{asset('frontEnd/img/vertical-menu')}}/{{$item->category_photo}} " alt="menu-icon" width="20px" height="20px">
+                                        </span> {{$item->category_name}} <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                                         <!-- Vertical Mega-Menu Start -->
                                         <ul class="ht-dropdown megamenu first-megamenu">
 
@@ -486,14 +486,14 @@
 
                                             <!-- Single Column Start -->
                                             <li class="single-megamenu">
-                                            @foreach (৳sub_category as ৳sub)
-                                            @if (৳item->id == ৳sub->categoryId)
-                                            @if (৳loop->iteration % 2 != 0)
+                                            @foreach ($sub_category as $sub)
+                                            @if ($item->id == $sub->categoryId)
+                                            @if ($loop->iteration % 2 != 0)
                                             <ul id="bijor">
-                                                <li class="menu-tile">{{৳sub->sub_category_name}}</li>
-                                                @foreach (৳allProduct as ৳singleProduct)
-                                                    @if (৳singleProduct->sub_category === ৳sub->id)
-                                                    <li><a href="{{url("product/view")}}/{{৳singleProduct->id}}">{{৳singleProduct->product_name}}</a></li>
+                                                <li class="menu-tile">{{$sub->sub_category_name}}</li>
+                                                @foreach ($allProduct as $singleProduct)
+                                                    @if ($singleProduct->sub_category === $sub->id)
+                                                    <li><a href="{{url("product/view")}}/{{$singleProduct->id}}">{{$singleProduct->product_name}}</a></li>
                                                     @endif
                                                 @endforeach
                                             </ul>
@@ -503,14 +503,14 @@
                                             </li>
                                             <!-- Single Column End -->
                                             <li class="single-megamenu">
-                                            @foreach (৳sub_category as ৳sub)
-                                            @if (৳item->id == ৳sub->categoryId)
-                                            @if (৳loop->iteration % 2 == 0)
+                                            @foreach ($sub_category as $sub)
+                                            @if ($item->id == $sub->categoryId)
+                                            @if ($loop->iteration % 2 == 0)
                                             <ul id="jor">
-                                                <li class="menu-tile">{{৳sub->sub_category_name}}</li>
-                                                @foreach (৳allProduct as ৳singleProduct)
-                                                    @if (৳singleProduct->sub_category === ৳sub->id)
-                                                    <li><a href="{{url("product/view")}}/{{৳singleProduct->id}}">{{৳singleProduct->product_name}}</a></li>
+                                                <li class="menu-tile">{{$sub->sub_category_name}}</li>
+                                                @foreach ($allProduct as $singleProduct)
+                                                    @if ($singleProduct->sub_category === $sub->id)
+                                                    <li><a href="{{url("product/view")}}/{{$singleProduct->id}}">{{$singleProduct->product_name}}</a></li>
                                                     @endif
                                                 @endforeach
                                             </ul>
@@ -528,12 +528,12 @@
 
                                             <!-- Single Megamenu Image Start -->
                                             <li class="megamenu-img">
-                                            @foreach (৳allProduct as ৳allp)
-                                            @foreach (৳sub_category as ৳sub)
-                                            @if (৳item->id == ৳sub->categoryId)
-                                                @if (৳allp->sub_category == ৳sub->id)
+                                            @foreach ($allProduct as $allp)
+                                            @foreach ($sub_category as $sub)
+                                            @if ($item->id == $sub->categoryId)
+                                                @if ($allp->sub_category == $sub->id)
 
-                                                <a href="#"><img width="224" height="90" src="{{asset('uploads/brand')}}/{{App\Brand::find(৳allp->brand)->photo}}" alt="menu-image"></a>
+                                                <a href="#"><img width="224" height="90" src="{{asset('uploads/brand')}}/{{App\Brand::find($allp->brand)->photo}}" alt="menu-image"></a>
                                                 @endif
                                             @endif
                                             @endforeach
@@ -564,9 +564,9 @@
                                         <ul>
                                             <li class="has-sub"><a href="#">More Categories</a>
                                                 <ul class="category-sub">
-                                                  @foreach (৳category as ৳item)
-                                                    @if (৳loop->iteration > 10 && ৳item->activation ==1)
-                                                    <li><a href="{{url('shop/category')}}/{{৳item->id}}"><span><img src="{{asset('frontEnd/img/vertical-menu')}}/{{৳item->category_photo}}" alt="menu-icon" width="20px" height="20px"></span>{{৳item->category_name}} </a></li>
+                                                  @foreach ($category as $item)
+                                                    @if ($loop->iteration > 10 && $item->activation ==1)
+                                                    <li><a href="{{url('shop/category')}}/{{$item->id}}"><span><img src="{{asset('frontEnd/img/vertical-menu')}}/{{$item->category_photo}}" alt="menu-icon" width="20px" height="20px"></span>{{$item->category_name}} </a></li>
                                                     @endif
                                                   @endforeach
                                                 </ul>
@@ -848,7 +848,7 @@
                                             {{-- <h3 class="product-header">Printed Summer Dress</h3> --}}
                                             <h3 class="product-header" id="pQuickName">here</h3>
                                             <div class="pro-price mtb-30">
-                                                {{-- <p class="d-flex align-items-center"><span  class="prev-price">16.51</span><span class="price" id="pQuickPrice">৳15.19</span><span class="saving-price">save 8%</span></p> --}}
+                                                {{-- <p class="d-flex align-items-center"><span  class="prev-price">16.51</span><span class="price" id="pQuickPrice">$15.19</span><span class="saving-price">save 8%</span></p> --}}
                                                 <p class="d-flex align-items-center"><span class="price" id="pQuickPrice">00</span></p>
                                             </div>
                                             <p class="mb-20 pro-desc-details" id="pQuickDis">Long printed dress with thin adjustable straps. V-neckline and wiring under the bust with ruffles at the bottom of the dress.</p>
@@ -945,7 +945,7 @@
     </script>
     <script>
 
-        ৳('.delPro').click(e => {
+        $('.delPro').click(e => {
             e.preventDefault();
             let element = e.target.parentElement.dataset.del;
             // console.log(element);
@@ -972,17 +972,17 @@
         @endif
     </script>
     <script>
-        @if(৳errors->all())
+        @if($errors->all())
                 toastr.error("Error Occared ! Please Check The Form Requirements 😢");
-                @foreach (৳errors->all() as ৳item)
-                toastr.warning("{{ ৳item }}");
+                @foreach ($errors->all() as $item)
+                toastr.warning("{{ $item }}");
                 @endforeach
                 @endif
     </script>
     <script>
 
 
-    ৳('.lnr-magnifier').on('click',function (e) {
+    $('.lnr-magnifier').on('click',function (e) {
       let singleProduct = e.target.parentElement.parentElement.parentElement;
       let imageDiv = e.target.parentElement.parentElement;
       let productImage = imageDiv.children[0].children[0].src;//
@@ -998,7 +998,7 @@
       document.getElementById('pQuickPrice').innerHTML = proPrice;
       // document.querySelector('.pQuickImg').src = productImage;
       // document.querySelector('.pQuickImg').src = productImage;
-      // ৳(".pQuickImg").src(productImage);
+      // $(".pQuickImg").src(productImage);
       let allQDiv = document.querySelectorAll('.pQuickImg');
       allQDiv.forEach(item => {
         item.src = productImage;
@@ -1009,7 +1009,7 @@
     </script>
     <script>
 
-    ৳('body').ready(function () {
+    $('body').ready(function () {
       // runHotdealChecker
       let mainUrl = window.location.origin;
       let  rq = mainUrl+"/runHotdealChecker";
@@ -1027,7 +1027,7 @@
                 // var result = document.getElementById('result');
                 // var content = '';
                 // resposce.forEach(function(data) {
-                //     content += `<h1>৳{data.title}</h1><p>৳{data.body}</p>`;
+                //     content += `<h1>${data.title}</h1><p>${data.body}</p>`;
                 // });
                 // result.innerHTML = content;
             }
