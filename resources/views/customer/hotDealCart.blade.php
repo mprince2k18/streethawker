@@ -94,7 +94,7 @@
                                                 $dis +=$tempTotalDis*($item->product_quantity);
                                                 $totalPrice += $tempTotal*($item->product_quantity);
                                             @endphp
-                                            <td class="product-price"><span class="amount">£{{ $tempTotal }} </span></td>
+                                            <td class="product-price"><span class="amount">৳{{ $tempTotal }} </span></td>
 
                                             <input type="hidden" class="productId" name="productId[]" value="{{App\HotDeal::findOrFail($item->hotdeal_id)->product}}">
 
@@ -105,7 +105,7 @@
                                             </td>
 
                                                 {{-- $totalPrice-(($totalPrice*($dis))/100)  --}}
-                                            <td class="product-subtotal">£{{$tempTotal*($item->product_quantity)}}</td>
+                                            <td class="product-subtotal">৳{{$tempTotal*($item->product_quantity)}}</td>
                                             <td class="product-remove"> <a href="{{url('deletehotDealCart')}}/{{$item->id}}"><i class="fa fa-times" aria-hidden="true"></i></a></td>
                                         <script>
                                             checkUpdateBtn++;

@@ -101,9 +101,8 @@
         <!-- Hot Deal Products End Here -->
 
         <!-- Big Banner Start Here -->
-        <div class="big-banner mt-100 pb-85 mt-sm-60 pb-sm-45">
+        {{-- <div class="big-banner mt-100 pb-85 mt-sm-60 pb-sm-45">
             <div class="container banner-2">
-
                 @foreach ($managepromotionalcateogry as $element)
                 <div class="banner-box">
                     <div class="col-img">
@@ -113,8 +112,7 @@
               @endforeach
 
             </div>
-            <!-- Container End -->
-        </div>
+        </div> --}}
         <!-- Big Banner End Here -->
         <!-- Arrivals Products Area Start Here -->
         <div class="arrivals-product pb-85 pb-sm-45">

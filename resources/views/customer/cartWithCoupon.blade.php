@@ -83,7 +83,7 @@
                                                 <a href="#"><img src="{{asset('uploads/product')}}/{{App\product::findOrFail($item->product_id)->photo}}" alt="cart-image" /></a>
                                             </td>
                                             <td class="product-name"><a href="#">{{App\product::findOrFail($item->product_id)->product_name}}</a></td>
-                                            <td class="product-price"><span class="amount">£{{App\product::findOrFail($item->product_id)->product_price}}</span></td>
+                                            <td class="product-price"><span class="amount">৳{{App\product::findOrFail($item->product_id)->product_price}}</span></td>
                                             @php
                                                 $totalPrice += (App\product::findOrFail($item->product_id)->product_price)*($item->product_quantity);
                                             @endphp
@@ -97,7 +97,7 @@
                                             </td>
 
 
-                                            <td class="product-subtotal">£{{(App\product::findOrFail($item->product_id)->product_price)*($item->product_quantity)}}</td>
+                                            <td class="product-subtotal">৳{{(App\product::findOrFail($item->product_id)->product_price)*($item->product_quantity)}}</td>
                                             <td class="product-remove"> <a href="{{url('deleteCart')}}/{{$item->id}}"><i class="fa fa-times" aria-hidden="true"></i></a></td>
                                         <script>
                                             checkUpdateBtn++;
