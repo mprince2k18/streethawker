@@ -237,7 +237,7 @@
                                                Discount <span class="product-quantity"> </span>
                                             </td>
                                             <td class="product-total">
-                                                <span class="amount">£{{$dis}}</span>
+                                                <span class="amount">৳{{$dis}}</span>
                                             </td>
                                         </tr>
                                         <tr class="cart_item">
@@ -245,18 +245,18 @@
                                                 Ship<span class="product-quantity"> </span>
                                             </td>
                                             <td class="product-total">
-                                                <span class="amount">£{{$ship}}</span>
+                                                <span class="amount">৳{{$ship}}</span>
                                             </td>
                                         </tr>
                                     </tbody>
                                     <tfoot>
                                         <tr class="cart-subtotal">
                                             <th>Cart Subtotal</th>
-                                            <td><span class="amount">£{{$sub}}</span></td>
+                                            <td><span class="amount">৳{{$sub}}</span></td>
                                         </tr>
                                         <tr class="order-total">
                                             <th>Order TotalDiscount</th>
-                                            <td><span class=" total amount">£{{$tot}}</span>
+                                            <td><span class=" total amount">৳{{$tot}}</span>
                                             </td>
                                         </tr>
                                     </tfoot>
