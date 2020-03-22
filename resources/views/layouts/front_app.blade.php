@@ -106,7 +106,7 @@
                     <div class="header-top">
                         <ul>
                             {{-- <li><a href="#">Free Shipping on order over $99</a></li> --}}
-                            <li><a href="{{ route('hotDealCart') }}">Hot Deal Cart</a></li>
+                            <li><a href="{{ route('hotDealCart') }}"><i class="lnr lnr-cart"></i>Hot Deal Cart</a></li>
                             {{-- <li><a href="{{url('checkOut')}}">Checkout</a></li> --}}
                         </ul>
                         <ul>
