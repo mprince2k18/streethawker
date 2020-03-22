@@ -52,10 +52,10 @@
                     <div class="topbar-left">
                         <a href="{{url('/')}}" class="logo">
                                     <span>
-                                        <img src=" {{asset('assets/images/logo.png')}} " alt="" height="25">
+                                        <img src="https://streethawker.com.bd/frontEnd/img/logo/5.png" alt="" height="25">
                                     </span>
                             <i>
-                                <img src="{{asset('assets/images/logo_sm.png')}}" alt="" height="28">
+                                <img src="https://streethawker.com.bd/frontEnd/img/logo/5.png" alt="" height="28">
                             </i>
                         </a>
                     </div>
