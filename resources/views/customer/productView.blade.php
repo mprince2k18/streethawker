@@ -392,7 +392,7 @@ function magnify(imgID, zoom) {
                         <div class="pro-content">
                             <div class="pro-info">
                                 <h4><a href="product.html">Work Lamp Silver Proin</a></h4>
-                                <p><span class="price">$320.45</span> <del class="prev-price">$330.50</del></p>
+                                <p><span class="price">৳320.45</span> <del class="prev-price">৳330.50</del></p>
                                 <div class="label-product l_sale">15<span class="symbol-percent">%</span></div>
                             </div>
                             <div class="pro-actions">
@@ -423,7 +423,7 @@ function magnify(imgID, zoom) {
                         <div class="pro-content">
                             <div class="pro-info">
                                 <h4><a href="product.html">Gpoly and Bark Eames Style</a></h4>
-                                <p><span class="price">$150.30</span> <del class="prev-price">$105.50</del></p>
+                                <p><span class="price">৳150.30</span> <del class="prev-price">৳105.50</del></p>
                                 <div class="label-product l_sale">22<span class="symbol-percent">%</span></div>
                             </div>
                             <div class="pro-actions">
@@ -454,7 +454,7 @@ function magnify(imgID, zoom) {
                         <div class="pro-content">
                             <div class="pro-info">
                                 <h4><a href="product.html">Poly and Bark Vortex Side</a></h4>
-                                <p><span class="price">$90.45</span></p>
+                                <p><span class="price">৳90.45</span></p>
                             </div>
                             <div class="pro-actions">
                                 <div class="actions-primary">
@@ -485,7 +485,7 @@ function magnify(imgID, zoom) {
                         <div class="pro-content">
                             <div class="pro-info">
                                 <h4><a href="product.html">Eames and Bark  Style</a></h4>
-                                <p><span class="price">$90.45</span><del class="prev-price">$100.50</del></p>
+                                <p><span class="price">৳90.45</span><del class="prev-price">৳100.50</del></p>
                                 <div class="label-product l_sale">20<span class="symbol-percent">%</span></div>
                             </div>
                             <div class="pro-actions">
@@ -516,7 +516,7 @@ function magnify(imgID, zoom) {
                         <div class="pro-content">
                             <div class="pro-info">
                                 <h4><a href="product.html">Bark Vortex Side Eames</a></h4>
-                                <p><span class="price">$84.45</span></p>
+                                <p><span class="price">৳84.45</span></p>
                             </div>
                             <div class="pro-actions">
                                 <div class="actions-primary">
@@ -546,7 +546,7 @@ function magnify(imgID, zoom) {
                         <div class="pro-content">
                             <div class="pro-info">
                                 <h4><a href="product.html">Poly and Bark Vortex Side</a></h4>
-                                <p><span class="price">$95.45</span></p>
+                                <p><span class="price">৳95.45</span></p>
                             </div>
                             <div class="pro-actions">
                                 <div class="actions-primary">
@@ -576,7 +576,7 @@ function magnify(imgID, zoom) {
                         <div class="pro-content">
                             <div class="pro-info">
                                 <h4><a href="product.html">Poly and Bark Vortex Side</a></h4>
-                                <p><span class="price">$84.45</span></p>
+                                <p><span class="price">৳84.45</span></p>
                             </div>
                             <div class="pro-actions">
                                 <div class="actions-primary">
