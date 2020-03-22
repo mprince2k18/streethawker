@@ -178,7 +178,7 @@
                                                     <a href="{{__('add/to/cart')}}/{{$item->id}}" title="Add to Cart"> + Add To Cart</a>
                                                 </div>
                                                 <div class="actions-secondary">
-                                                    <a href="compare.html" title="Compare"><i class="lnr lnr-sync"></i> <span>Add To Compare</span></a>
+                                                    {{-- <a href="compare.html" title="Compare"><i class="lnr lnr-sync"></i> <span>Add To Compare</span></a> --}}
                                                     <a href="{{ url('add/to/wish/list') }}/{{$item->id}}" title="WishList"><i class="lnr lnr-heart"></i> <span>Add to WishList</span></a>
                                                 </div>
                                             </div>
